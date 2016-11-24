@@ -18,7 +18,7 @@ class HelloWorldTest {
 	private static WebTarget target;
 
 	@BeforeAll
-	public static void initAll() {
+	static void initAll() {
 		server = Main.startServer();
 		Client c = ClientBuilder.newClient();
 		target = c.target(Main.BASE_URI);
