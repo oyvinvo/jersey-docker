@@ -6,18 +6,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.json.Json;
-import javax.json.JsonBuilderFactory;
-import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class HelloWorldTest {
 
@@ -28,13 +22,6 @@ public class HelloWorldTest {
 	public void setUp() {
 		server = Main.startServer();
 		Client c = ClientBuilder.newClient();
-
-		// uncomment the following line if you want to enable
-		// support for JSON in the client (you also have to uncomment
-		// dependency on jersey-media-json module in pom.xml and Main.startServer())
-		// --
-		// c.configuration().enable(new org.glassfish.jersey.media.json.JsonJaxbFeature());
-
 		target = c.target(Main.BASE_URI);
 	}
 
