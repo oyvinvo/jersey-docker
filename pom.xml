@@ -88,6 +88,17 @@
                                     <shell>java -jar /maven/${project.artifactId}-${project.version}.jar</shell>
                                 </cmd>
                             </build>
+                            <run>
+                                <ports>
+                                    <port>http.port:8080</port>
+                                </ports>
+                                <wait>
+                                    <http>
+                                        <url>http://localhost:${http.port}/jersey-sample/application.wadl</url>
+                                    </http>
+                                    <time>10000</time>
+                                </wait>
+                            </run>
                         </image>
                     </images>
                 </configuration>
