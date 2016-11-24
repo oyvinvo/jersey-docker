@@ -2,31 +2,32 @@ package no.volden.hello;
 
 import no.volden.Main;
 import org.glassfish.grizzly.http.server.HttpServer;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class HelloWorldTest {
 
-	private HttpServer server;
-	private WebTarget target;
+	private static HttpServer server;
+	private static WebTarget target;
 
-	@Before
-	public void setUp() {
+	@BeforeAll
+	public static void setUp() {
 		server = Main.startServer();
 		Client c = ClientBuilder.newClient();
 		target = c.target(Main.BASE_URI);
 	}
 
-	@After
-	public void tearDown() {
+	@AfterAll
+	public static void tearDown() {
 		server.shutdownNow();
 	}
 
