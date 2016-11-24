@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.URI;
 
 public class Main {
-    public static final String BASE_URI = "http://localhost:8080/jersey-sample/";
+    public static final String BASE_URI = "http://0.0.0.0:8080/jersey-sample/";
 
     public static HttpServer startServer() {
         final ResourceConfig rc = new ResourceConfig().packages("no.volden.hello");

@@ -65,6 +65,47 @@
                     <mainClass>no.volden.Main</mainClass>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.18.1</version>
+
+                <configuration>
+                    <images>
+                        <image>
+                            <alias>jersey-sample-dockerized</alias>
+                            <name>${project.artifactId}:${project.version}</name>
+                            <build>
+                                <from>java:8</from>
+                                <tags>
+                                    <tag>latest</tag>
+                                    <tag>${project.version}</tag>
+                                </tags>
+                                <assembly>
+                                    <descriptorRef>artifact-with-dependencies</descriptorRef>
+                                </assembly>
+                                <cmd>
+                                    <shell>java -jar /maven/${project.artifactId}-${project.version}.jar</shell>
+                                </cmd>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>.</classpathPrefix>
+                            <mainClass>no.volden.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
