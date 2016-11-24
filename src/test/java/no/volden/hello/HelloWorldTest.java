@@ -14,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class HelloWorldTest {
+class HelloWorldTest {
 
 	private static HttpServer server;
 	private static WebTarget target;
@@ -27,18 +27,18 @@ public class HelloWorldTest {
 	}
 
 	@AfterAll
-	public static void tearDown() {
+	static void tearDown() {
 		server.shutdownNow();
 	}
 
 	@Test
-	public void hiya() {
+	void hiya() {
 		String response = target.path("HelloWorld").request(MediaType.TEXT_PLAIN).get(String.class);
 		assertEquals("Hi world!", response);
 	}
 
 	@Test
-	public void hiyaJason() {
+	void hiyaJason() {
 		HiyaJson response = target.path("HelloWorld").request(MediaType.APPLICATION_JSON).get(HiyaJson.class);
 		assertEquals("Hi world!", response.getLabel());
 
