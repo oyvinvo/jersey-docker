@@ -74,7 +74,7 @@
                     <images>
                         <image>
                             <alias>jersey-sample-dockerized</alias>
-                            <name>${project.artifactId}:${project.version}</name>
+                            <name>novsnoarkfun:443/${project.artifactId}:${project.version}</name>
                             <build>
                                 <from>java:8</from>
                                 <tags>
