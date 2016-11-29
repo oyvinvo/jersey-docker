@@ -1,4 +1,4 @@
-# jersey-sample
+# jersey-docker
 Build docker image: 
 ```
 mvn clean package docker:build
