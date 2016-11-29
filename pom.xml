@@ -76,7 +76,7 @@
                             <alias>jersey-sample-dockerized</alias>
                             <name>novsnoarkfun:443/${project.artifactId}:${project.version}</name>
                             <build>
-                                <from>java:8</from>
+				    <from>frolvlad/alpine-oraclejdk8:slim</from>
                                 <tags>
                                     <tag>${project.version}</tag>
                                     <tag>latest</tag>
