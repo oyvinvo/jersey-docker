@@ -11,7 +11,7 @@ public class HelloWorld {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String hiya() {
-		return "Hi world!!";
+		return "Hi world!";
 	}
 
 	@GET
