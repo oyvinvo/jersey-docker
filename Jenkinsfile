@@ -1,4 +1,7 @@
 #!groovy
-node {
-    echo 'Testing. Hi, this is pipeline asking for his pipes back. '
+stage('build') {
+    node {
+        checkout scm
+        echo 'Testing. Hi, this is pipeline asking for his pipes back. '
+    }
 }
