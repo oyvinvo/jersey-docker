@@ -34,7 +34,7 @@ class HelloWorldTest {
 	@Tag("text_respons")
 	void hiya() {
 		String response = target.path("HelloWorld").request(MediaType.TEXT_PLAIN).get(String.class);
-		assertEquals("Hi world!", response);
+		assertEquals("Hi world! Greetings from: unknown", response);
 	}
 
 	@Test

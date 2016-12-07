@@ -10,8 +10,10 @@ public class HelloWorld {
 
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
-	public String hiya() {
-		return "Hi world!";
+	public String hiya()  {
+		String hostnameOrNull = System.getenv("HOSTNAME");
+		String hostname = null != hostnameOrNull ? hostnameOrNull : "unknown";
+		return "Hi world! Greetings from: ".concat(hostname);
 	}
 
 	@GET
@@ -19,4 +21,5 @@ public class HelloWorld {
 	public HiyaJson hiyaJason() {
 		return new HiyaJson("Hi world!");
 	}
+
 }
